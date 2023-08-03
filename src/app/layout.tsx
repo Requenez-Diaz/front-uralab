@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,12 +15,41 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const menus = [
+    {
+      texto: "roles",
+      url: "/roles",
+    },
+    { users: "users", url: "/users" },
+    {
+      texto: "permisos",
+      url: "/permisos",
+    },
+    {
+      texto: "about",
+      url: "/about",
+    },
+  ];
+
   return (
     <html lang='en'>
       <body className={inter.className}>
         <div>
           <div className='flex flex-row '>
-            <div className=' bg-black-600 basis-1/6'></div>
+            <div className=' bg-black-600 basis-1/6'>
+              <ul>
+                <li>
+                  <div className='text-center'> Menu</div>
+                  <li>
+                    {menus.map((menu) => (
+                      <li key={`menu-${menu.texto}`}>
+                        <Link href={menu.url}>{menu.texto}</Link>
+                      </li>
+                    ))}
+                  </li>
+                </li>
+              </ul>
+            </div>
             <div className='bg-gray-300 basis-5/6 text-black'>{children}</div>
           </div>
         </div>
