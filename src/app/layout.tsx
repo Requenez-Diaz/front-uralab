@@ -19,6 +19,7 @@ export default function RootLayout({
     { texto: "Roles", url: "/roles" },
     { texto: "Usuarios", url: "/users" },
     { texto: "About", url: "/about" },
+    { texto: "Modalidades", url: "/modalidades" },
   ];
   return (
     <html lang='es'>

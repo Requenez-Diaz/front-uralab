@@ -20,6 +20,7 @@ export default async function TableUsers() {
           <tr key={`user-${user.id}`}>
             <th>{user.name}</th>
             <th>{user.email}</th>
+            <th>{user.telefono}</th>
           </tr>
         ))}
       </tbody>
